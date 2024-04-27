@@ -1,8 +1,38 @@
 import { Link } from "react-router-dom";
 import SocialLogIn from "./SocialLogIn";
 
+import { useForm } from "react-hook-form";
+import UseAuth from "../Hook/UseAuth";
+
+
 
 const LogIn = () => {
+
+    const { signInUser } = UseAuth()
+
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+      } = useForm()
+    
+      const onSubmit = (data) => {
+      const { email, password } = data;
+
+
+      signInUser(email, password)
+      .then(result => {
+        console.log(result.user);
+      })
+      .catch(error =>{
+        console.log(error);
+      })
+
+
+     
+      }
+
     return (
         <div>
             <div className="hero min-h-screen bg-black">
@@ -12,18 +42,24 @@ const LogIn = () => {
       
     </div>
     <div className="card shrink-0 w-screen max-w-sm shadow-2xl bg-orange-600">
-      <form className="card-body">
+      <form onSubmit={handleSubmit(onSubmit)} className="card-body">
         <div className="form-control ">
           <label className="label">
             <span className="label-text text-white">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered " required />
+          <input type="email" placeholder="email" className="input input-bordered " 
+          {...register("email", { required: true })}
+          />
+           {errors.email && <span  className="text-red-500">This field is required</span>}
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text text-white">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered " required />
+          <input type="password" placeholder="password" className="input input-bordered " 
+            {...register("password", { required: true })}
+          />
+          {errors.password && <span  className="text-red-500">This field is required</span>}
           <label className="label">
             <h3 href="#" className="label-text-alt  text-white">New Here? Please <Link className="link link-hover text-black font-bold" to="/register">Register</Link></h3>
           </label>
