@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../Hook/UseAuth";
 
 
 const Navbar = () => {
 
+ const {  logout, user } = UseAuth()
     const navLinks = <>
     <li> <NavLink to="/"  className={({ isActive }) =>
             `py-2 px-4 font-bold ${isActive ? "bg-orange-600 text-white" : "bg-transparent"}`
@@ -42,9 +44,33 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end gap-4">
-    <Link to="/login"><a className="btn bg-orange-600 text-white">Log in</a></Link>
-    <Link to="/register"><a className="btn bg-orange-600 text-white">Register</a></Link>
     
+  {
+            user ? (
+              <div className='flex justify-center items-center'>
+               
+        
+               <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+                  <div className="w-10 h-10 rounded-full " >
+                    <img className="rounded-full" alt="Profile Image" src={user? user.photoURL:  "https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"}
+ />
+                 </div>
+                </div>
+                <button className='btn btn-sm bg-orange-600 text-white border-0 ml-4 mr-4' onClick={logout}>Logout</button>
+              </div>
+            )
+    :
+        (<div>
+          <Link to="/login"><a className="btn bg-orange-600 text-white mr-4">Log in</a></Link>
+    <Link to="/register"><a className="btn bg-orange-600 text-white">Register</a></Link>
+        </div>)
+        }
+
+
+
+
+
+
   </div>
 </div>
     );
