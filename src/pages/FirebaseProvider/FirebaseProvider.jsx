@@ -1,4 +1,4 @@
-import { GithubAuthProvider,GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider,GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../firebase/firebase.config";
 
@@ -11,15 +11,34 @@ const githubProvider = new GithubAuthProvider();
 
 const FirebaseProvider = ({ children }) => {
     const [user, setUser] = useState(null)
-    console.log(user);
+    const [loading, setLoading] = useState(true);
+ 
    
 
 
     //create user
     const createUser = (email, password) => {
        
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Call logout after user is created
+            logout();
+            return userCredential;
+        })
+        .catch((error) => {
+            // Handle errors if any
+            console.error("Error creating user:", error);
+        });
     }
+
+    //update user profile
+    const updateUserProfile = (name, image) =>{
+        return  updateProfile(auth.currentUser, {
+              displayName: name, 
+              photoURL: image,
+              
+            })
+      }
 
     //login
     const signInUser = (email, password) =>{
@@ -27,6 +46,8 @@ const FirebaseProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
 
     };
+
+
 
     // google login
     const googleLogin = ()=>{
@@ -55,7 +76,7 @@ const FirebaseProvider = ({ children }) => {
                 
             }
            
-            // setLoading(false);
+            setLoading(false);
              
           });
           return () => unsubscribe(); 
@@ -70,7 +91,10 @@ const FirebaseProvider = ({ children }) => {
         googleLogin,
         githubLogin,
         logout,
-        user
+        updateUserProfile,
+        user,
+        loading,
+       
     }
     
     return (

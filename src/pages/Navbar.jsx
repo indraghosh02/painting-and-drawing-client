@@ -50,9 +50,9 @@ const Navbar = () => {
               <div className='flex justify-center items-center'>
                
         
-               <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+               <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'user name not found'}>
                   <div className="w-10 h-10 rounded-full " >
-                    <img className="rounded-full" alt="Profile Image" src={user? user.photoURL:  "https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png"}
+                    <img className="rounded-full" alt="photo" src={user?.photoURL || "https://i.ibb.co/yQd38JP/icons8-user-50.png"}
  />
                  </div>
                 </div>

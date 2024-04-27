@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,7 +9,7 @@ import UseAuth from "../Hook/UseAuth";
 const Register = () => {
 //   const [password, setPassword] = useState("");
 
-  const { createUser } = UseAuth();
+  const { createUser,  updateUserProfile } = UseAuth();
 
   const {
     register,
@@ -18,14 +18,27 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  
+    //navigation
+    const navigate = useNavigate();
+   
+    const form = '/' ;
+
 
 
   const onSubmit = data => {
-    const {email, password} = data;
-    createUser(email, password )
-    .then(result =>{
-        console.log(result);
-    })
+    const {email, password ,  image, fullName } = data;
+
+    createUser(email, password)
+    .then(() => {
+      updateUserProfile(fullName, image)
+      .then(() =>{
+       
+          navigate(form);
+      
+      })
+     
+      });
 }
   
  
