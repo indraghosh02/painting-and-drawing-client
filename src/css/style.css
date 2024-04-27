@@ -1,0 +1,28 @@
+.slide {
+    color: blue;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+   
+}
+
+  
+  .slide1 {
+      background-image: url("https://i.ibb.co/K7NhHY7/oil.jpg");
+  }
+  .slide2 {
+      background-image: url("https://i.ibb.co/pwzzTJq/painting-lake-with-mountains-trees-background.jpg");
+  }
+  .slide3 {
+      background-image: url("https://i.ibb.co/cD7CWJJ/sktexh-JPG.jpg");
+  }
+  .slide4 {
+      background-image: url("https://i.ibb.co/Gc1Nbnc/4023.jpg");
+  } 
+   
