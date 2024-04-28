@@ -16,34 +16,34 @@ const MyCraftList = () => {
     }
   }, [user]);
 
-//   const handleDelete = (craftId) => {
-//     Swal.fire({
-//       title: 'Are you sure?',
-//       text: "You won't be able to revert this!",
-//       icon: 'warning',
-//       showCancelButton: true,
-//       confirmButtonText: 'Yes, delete it!',
-//       cancelButtonText: 'No, keep it',
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         fetch(`http://localhost:5000/art/${craftId}`, {
-//           method: 'DELETE',
-//         })
-//           .then((res) => res.json())
-//           .then((data) => {
-//             if (data.deletedCount > 0) {
-//               setCrafts((prevCrafts) => prevCrafts.filter((craft) => craft._id !== craftId)); // Update the state to remove the deleted craft
-//               Swal.fire('Deleted!', 'Your craft has been deleted.', 'success');
-//             }
-//           });
-//       }
-//     });
-//   };
+  const handleDelete = (craftId) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/art/${craftId}`, {
+          method: 'DELETE',
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setCrafts((prevCrafts) => prevCrafts.filter((craft) => craft._id !== craftId)); // Update the state to remove the deleted craft
+              Swal.fire('Deleted!', 'Your craft has been deleted.', 'success');
+            }
+          });
+      }
+    });
+  };
 
-//   const handleUpdate = (craftId) => {
-//     // Navigate to a separate page or open a modal to update the craft
-//     // Implementation depends on your specific application structure
-//   };
+  const handleUpdate = (craftId) => {
+    // Navigate to a separate page or open a modal to update the craft
+    // Implementation depends on your specific application structure
+  };
 
   return (
     <div className="m-20">
@@ -61,11 +61,11 @@ const MyCraftList = () => {
               <p>Customization: {craft.customization}</p>
               <p>Stock Status: {craft.stock}</p>
               <div className="flex justify-between mt-4">
-                {/* <button onClick={() => handleUpdate(craft._id)} className="btn bg-blue-600 text-white">Update</button>
-                <button onClick={() => handleDelete(craft._id)} className="btn bg-red-600 text-white">Delete</button> */}
-
+                <button onClick={() => handleUpdate(craft._id)} className="btn bg-green-600 text-white">Update</button>
+                <button onClick={() => handleDelete(craft._id)} className="btn bg-red-600 text-white">Delete</button>
+{/* 
                 <button  className="btn bg-green-600 text-white">Update</button>
-                <button  className="btn bg-red-600 text-white">Delete</button>
+                <button  className="btn bg-red-600 text-white">Delete</button> */}
               </div>
             </div>
           </div>
