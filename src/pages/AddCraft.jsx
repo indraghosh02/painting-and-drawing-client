@@ -1,10 +1,57 @@
-
+import Swal from 'sweetalert2'
 
 const AddCraft = () => {
+
+    const handleAddArt = event => {
+        event.preventDefault();
+
+        const form = event.target;
+
+        const name = form.name.value;
+        const subcategory = form.subcategory.value;
+        const image = form.image.value;
+        const description = form.description.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+        const Customization = form.Customization.value;
+        const time = form.time.value;
+        const stock = form.stock.value;
+        const username = form.username.value;
+        const email = form.email.value;
+
+        const newArt = {name, subcategory, image, description, price, rating,Customization, time, stock, username, email}
+        console.log(newArt);
+
+
+        //send data to server
+        fetch('http://localhost:5000/art',{
+
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newArt)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Art Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+        })
+
+    }
+
+
     return (
         <div className="bg-black p-24 m-20 ">
              <h3 className='text-4xl text-center text-orange-600 font-bold mb-4'> Add Painting and Drawing Items</h3>
-             <form >
+             <form onSubmit={handleAddArt} >
 
                 {/* row-1 */}
                 <div className="md:flex gap-6">
@@ -120,7 +167,7 @@ const AddCraft = () => {
                 </label>
                 <label className="input-group">
 
-                <input type="text" name="stockStatus" placeholder="stockStatus" className="input input-bordered w-full " />
+                <input type="text" name="stock" placeholder="stockStatus" className="input input-bordered w-full " />
                 </label>
                 </div> 
 
