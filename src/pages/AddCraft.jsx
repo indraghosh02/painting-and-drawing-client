@@ -1,6 +1,11 @@
-import Swal from 'sweetalert2'
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import UseAuth from '../Hook/UseAuth';
 
 const AddCraft = () => {
+    const { user } = UseAuth();
+
+    const loadedUsers = useLoaderData();
 
     const handleAddArt = event => {
         event.preventDefault();
@@ -179,7 +184,11 @@ const AddCraft = () => {
                 </label>
                 <label className="input-group">
 
-                <input type="text" name="username" placeholder="user Name" className="input input-bordered w-full " />
+                <input type="text"
+                name="username"
+                placeholder="Username"
+                className="input input-bordered w-full"
+                defaultValue={user?.displayName || ''} />
                 </label>
                 </div> 
                 </div>
@@ -192,7 +201,13 @@ const AddCraft = () => {
                         </label>
                         <label className="input-group">
                        
-                        <input type="email" name="email" placeholder="User Email" className="input input-bordered w-full  " />
+                        <input
+              type="email"
+              name="email"
+              placeholder="User Email"
+              className="input input-bordered w-full"
+              defaultValue={user?.email || ''}
+            />
                          </label>
                  </div> 
 

@@ -52,7 +52,20 @@ const Register = () => {
     // If password is valid, proceed with user creation
     createUser(email, password)
       .then(() => {
+        const user = {email, fullName};
+        fetch('http://localhost:5000/user',{
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+          console.log(data);
+        })
         return updateUserProfile(fullName, image);
+        
       })
       .then(() => {
         toast.success("Registration successful!"); // Show success toast

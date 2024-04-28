@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const ArtCard = ({art}) => {
 
     const navigate = useNavigate();
-    const {_id, name, subcategory, image, description, price, rating,Customization, time, stock, username, email} = art;
+    const {_id, name, subcategory, image, description, price, rating, Customization, time, stock, username, email} = art;
 
 
     const viewDetails = () => {
