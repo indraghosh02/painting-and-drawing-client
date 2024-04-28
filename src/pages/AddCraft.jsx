@@ -136,16 +136,21 @@ const AddCraft = () => {
                 </label>
                 </div> 
                 </div>
-                <div className="form-control md:w-1/2  ">
+               
+                <div className="mb-8">
+                <div className="form-control w-full">
 
-                <label className="label">
-                <span className="label-text text-white font-semibold">User Email</span>
-                </label>
-                <label className="input-group">
+                        <label className="label">
+                        <span className="label-text text-white font-semibold">User Email</span>
+                        </label>
+                        <label className="input-group">
+                       
+                        <input type="email" name="email" placeholder="User Email" className="input input-bordered w-full  " />
+                         </label>
+                 </div> 
 
-                <input type="email" name="email" placeholder="User Email" className="input input-bordered w-full " />
-                </label>
-                </div> 
+                
+                 </div>
                 <input type="submit" value="Add Item" className="btn btn-block bg-orange-600 text-white mt-8"  />
 
                 
