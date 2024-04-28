@@ -8,6 +8,8 @@ import LogIn from "../pages/LogIn";
 import Register from "../pages/Register";
 import AddCraft from "../pages/AddCraft";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import HomeCardDetails from "../pages/HomeCardDetails";
+import TableItemDetails from "../pages/TableItemDetails";
 
 
 const router = createBrowserRouter([
@@ -22,8 +24,21 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/art')
             },
             {
+                path: '/homecarddetails/:id',
+                element: <PrivateRoute> <HomeCardDetails></HomeCardDetails> </PrivateRoute> ,
+                loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+            
+            },
+            {
                 path: '/allartcraft',
                 element: <AllArtCraft></AllArtCraft>,
+                loader: () => fetch('http://localhost:5000/art')
+            },
+            {
+                path: '/tableitemdetails/:id',
+                element: <PrivateRoute> <TableItemDetails></TableItemDetails> </PrivateRoute> ,
+                loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+            
             },
             {
                 path: '/addcraft',

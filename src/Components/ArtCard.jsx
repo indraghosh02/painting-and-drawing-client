@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
 
 
 const ArtCard = ({art}) => {
-    const {name, subcategory, image, description, price, rating,Customization, time, stock, username, email} = art;
+
+    const navigate = useNavigate();
+    const {_id, name, subcategory, image, description, price, rating,Customization, time, stock, username, email} = art;
+
+
+    const viewDetails = () => {
+        navigate(`/homecarddetails/${_id}`); // Navigate to the detail page with the art ID
+    };
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
@@ -17,7 +25,7 @@ const ArtCard = ({art}) => {
         <h2 className="text-orange-600 font-bold text-xl">{stock}</h2>
     </div>
     <div className="card-actions">
-      <button className="btn bg-orange-600 text-white w-full">View Details</button>
+      <button onClick={viewDetails} className="btn bg-orange-600 text-white w-full">View Details</button>
     </div>
   </div>
 </div>

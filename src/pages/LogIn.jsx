@@ -83,11 +83,12 @@ const LogIn = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-black">LogIn</button>
+                <button className="btn bg-black text-white">LogIn</button>
               </div>
             </form>
-            <SocialLogIn />
+          
           </div>
+          <SocialLogIn />
         </div>
       </div>
       <ToastContainer />
