@@ -10,6 +10,7 @@ import AddCraft from "../pages/AddCraft";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import HomeCardDetails from "../pages/HomeCardDetails";
 import TableItemDetails from "../pages/TableItemDetails";
+import UpdateArt from "../pages/UpdateArt";
 
 
 const router = createBrowserRouter([
@@ -46,9 +47,15 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/user')
 
             },
+
             {
                 path: '/myartcraft',
                 element: <PrivateRoute>  <MyCraftList></MyCraftList> </PrivateRoute>,
+            },
+            {
+                path: '/updateart/:id',
+                element: <PrivateRoute> <UpdateArt></UpdateArt> </PrivateRoute>,
+                loader: ({params}) =>fetch(`http://localhost:5000/art/${params.id}`)
             },
             {
                 path: '/login',

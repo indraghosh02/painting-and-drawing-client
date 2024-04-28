@@ -9,7 +9,9 @@ const Footer = () => {
     <p className="font-bold">
      Art Sketcher. <br/>Providing reliable painting since 2016
     </p> 
+    
     <p>Copyright © 2024 - All right reserved</p>
+    <p>Contact us with : +8801542634370</p>
   </aside> 
   <nav>
     <div className="grid grid-flow-col gap-4">
