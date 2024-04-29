@@ -16,10 +16,10 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  // Navigation route after registration
+  
   const form = "/";
 
-  // Function to validate password with specific conditions
+ 
   const validatePassword = (password) => {
     const passwordErrors = [];
 
@@ -39,17 +39,17 @@ const Register = () => {
   const onSubmit = (data) => {
     const { email, password, image, fullName } = data;
 
-    // Validate the password and show toast for each failed condition
+   
     const passwordErrors = validatePassword(password);
     if (passwordErrors.length > 0) {
-      // Display individual toast messages for each error
+     
       passwordErrors.forEach((error) => {
         toast.error(error);
       });
-      return; // Stop form submission if validation fails
+      return; 
     }
 
-    // If password is valid, proceed with user creation
+    
     createUser(email, password)
       .then(() => {
         const user = {email, fullName};
@@ -68,11 +68,11 @@ const Register = () => {
         
       })
       .then(() => {
-        toast.success("Registration successful!"); // Show success toast
-        navigate(form); // Navigate after successful registration
+        toast.success("Registration successful!"); 
+        navigate(form); 
       } )
       .catch((error) => {
-        // Handle registration errors and display toast
+       
         toast.error("Registration failed: " + error.message);
       });
   };
@@ -158,13 +158,13 @@ const Register = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn bg-black">Register</button>
+                <button className="btn bg-black text-white">Register</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <ToastContainer />
+     
     </div>
   );
 };

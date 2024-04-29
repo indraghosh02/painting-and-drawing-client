@@ -44,9 +44,7 @@ const MyCraftList = () => {
     });
   };
 
-  const handleUpdate = (craftId) => {
-    // Implementation for update goes here
-  };
+
 
   const handleFilterChange = (event) => {
     setCustomizationFilter(event.target.value); // Update the filter when the user selects a new option

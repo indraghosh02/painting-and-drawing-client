@@ -26,10 +26,9 @@ const UpdateArt = () => {
         const Customization = form.Customization.value;
         const time = form.time.value;
         const stock = form.stock.value;
-        const username = form.username.value;
-        const email = form.email.value;
 
-        const updateArt = {name, subcategory, image, description, price, rating,Customization, time, stock, username, email}
+
+        const updateArt = {name, subcategory, image, description, price, rating,Customization, time, stock}
         console.log(updateArt);
 
 
@@ -169,7 +168,7 @@ const UpdateArt = () => {
 
             {/* row-5*/}
             <div className="md:flex gap-6">
-           <div className="form-control md:w-1/2  ">
+           <div className="form-control w-full ">
 
            <label className="label">
            <span className="label-text text-white font-semibold">stockStatus</span>
@@ -181,42 +180,10 @@ const UpdateArt = () => {
            </div> 
 
            {/* 2 */}
-           <div className="form-control md:w-1/2">
-
-           <label className="label">
-           <span className="label-text text-white font-semibold">User Name</span>
-           </label>
-           <label className="input-group">
-
-           <input type="text"
-           name="username" defaultValue={username}
-           placeholder="Username"
-           className="input input-bordered w-full"
-           />
-           </label>
-           </div> 
+          
            </div>
           
-           <div className="mb-8">
-           <div className="form-control w-full">
-
-                   <label className="label">
-                   <span className="label-text text-white font-semibold">User Email</span>
-                   </label>
-                   <label className="input-group">
-                  
-                   <input
-         type="email"
-         name="email" defaultValue={email}
-         placeholder="User Email"
-         className="input input-bordered w-full"
-         
-       />
-                    </label>
-            </div> 
-
-           
-            </div>
+          
            <input type="submit" value="Update" className="btn btn-block bg-orange-600 text-white mt-8"  />
 
            

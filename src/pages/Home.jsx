@@ -1,6 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Slider from "../Components/Slider";
 import ArtCard from "../Components/ArtCard";
+import SubCategoryList from "../Components/SubCategoryList";
 
 
 const Home = () => {
@@ -26,12 +27,14 @@ const Home = () => {
            </div>
           </div>
 
+          <SubCategoryList></SubCategoryList>
+
 
             {/* our team */}
             
             <div>
                 <div className="mb-10 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-5">Our Team</h2>
+        <h2 className="text-4xl md:text-5xl text-orange-600 font-bold mb-5">Our Team</h2>
         <p className="text-gray-700 text-sm md:text-lg lg:text-base xl:text-lg  mx-auto md:w-3/4 lg:w-2/3 xl:w-1/2">Meet the talented individuals driving our team's success, each bringing unique skills and expertise to the table </p>
     </div>
 
@@ -39,20 +42,20 @@ const Home = () => {
   <div className="flex flex-wrap justify-center">
     <div className="avatar mr-8 mb-6">
       <div className="w-48 rounded-full overflow-hidden">
-        <img src="https://i.ibb.co/HnGpnsx/successful-businessman.jpg" />
+        <img src="https://i.ibb.co/LYGyW24/C1ture.jpg" />
        
       </div>
     </div>
   
     <div className="avatar mr-8 mb-6">
       <div className="w-48 rounded-full overflow-hidden">
-        <img src="https://i.ibb.co/Ms8r2cg/young-beautiful-woman-smiling-posing-purple-wall.jpg" />
+        <img src="https://i.ibb.co/hZdznVb/Ca2ture.jpg" />
       </div>
     </div>
   
     <div className="avatar mr-8 mb-6">
       <div className="w-48 rounded-full overflow-hidden">
-        <img src="https://i.ibb.co/nPLtVFK/confident-handsome-entrepreneur-with-clasped-hands.jpg" />
+        <img src="https://i.ibb.co/CbSDHqr/Capt3re.jpg" />
       </div>
     </div>
     
@@ -60,18 +63,33 @@ const Home = () => {
     
     <div className="avatar  mr-8 mb-6">
       <div className="w-48 rounded-full overflow-hidden">
-        <img src="https://i.ibb.co/PQny8Zz/beautiful-caucasian-businesswoman-glasses.jpg" />
+        <img src="https://i.ibb.co/kyyWxWC/Captu4e.jpg" />
       </div>
     </div>
     <div className="avatar mb-6">
       <div className="w-48 rounded-full overflow-hidden">
-        <img src="https://i.ibb.co/mbSWYFF/businessman-with-clipboard.jpg" />
+        <img src="https://i.ibb.co/7JN3PqP/Cap5re.jpgg" />
       </div>
     </div>
   </div>
 </div>
 
                 </div>
+
+                {/* about us  */}
+                <div>
+                    <div className="bg-gray-600 text-white py-8 px-4 md:px-8 lg:px-16 text-center">
+            <h2 className="text-lg md:text-xl lg:text-2xl mb-4 md:mb-6">Have any questions about our work?</h2>
+            <Link to="/aboutUs">
+                <button className="bg-white text-zinc-600 rounded-full px-4 py-2 md:px-6 md:py-3 lg:px-8 lg:py-4 text-sm md:text-base lg:text-lg hover:bg-gray-300 hover:text-zinc-600 transition duration-300">More About Us</button>
+            </Link>
+           
+        </div>
+
+
+
+
+            </div>
         </div>
     );
 };

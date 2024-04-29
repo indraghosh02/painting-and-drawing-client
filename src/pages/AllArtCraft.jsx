@@ -6,7 +6,7 @@ const AllArtCraft = () => {
 
     const arts = useLoaderData();
     return (
-        <div className="bg-black p-10 ">
+        <div className="bg-black p-10 mt-10 mb-10">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 text-center text-orange-600 ">Our Art Items </h2>
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto border-collapse border border-gray-200">

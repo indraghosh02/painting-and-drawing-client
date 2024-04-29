@@ -1,6 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Ensure this is imported
+import "react-toastify/dist/ReactToastify.css"; 
 import SocialLogIn from "./SocialLogIn";
 import { useForm } from "react-hook-form";
 import UseAuth from "../Hook/UseAuth";
@@ -91,7 +91,7 @@ const LogIn = () => {
           <SocialLogIn />
         </div>
       </div>
-      <ToastContainer />
+      
     </div>
   );
 };
