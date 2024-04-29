@@ -24,29 +24,29 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/art')
+                loader: () => fetch('https://painting-and-drawing-server-psi.vercel.app/art')
             },
             {
                 path: '/homecarddetails/:id',
                 element: <PrivateRoute> <HomeCardDetails></HomeCardDetails> </PrivateRoute> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+                loader: ({ params }) => fetch(`https://painting-and-drawing-server-psi.vercel.app/art/${params.id}`),
             
             },
             {
                 path: '/allartcraft',
                 element: <AllArtCraft></AllArtCraft>,
-                loader: () => fetch('http://localhost:5000/art')
+                loader: () => fetch('https://painting-and-drawing-server-psi.vercel.app/art')
             },
             {
                 path: '/tableitemdetails/:id',
                 element: <PrivateRoute> <TableItemDetails></TableItemDetails> </PrivateRoute> ,
-                loader: ({ params }) => fetch(`http://localhost:5000/art/${params.id}`),
+                loader: ({ params }) => fetch(`https://painting-and-drawing-server-psi.vercel.app/art/${params.id}`),
             
             },
             {
                 path: '/addcraft',
                 element: <PrivateRoute> <AddCraft></AddCraft> </PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/user')
+                loader: () => fetch('https://painting-and-drawing-server-psi.vercel.app/user')
 
             },
 
@@ -57,12 +57,12 @@ const router = createBrowserRouter([
             {
                 path: '/updateart/:id',
                 element: <PrivateRoute> <UpdateArt></UpdateArt> </PrivateRoute>,
-                loader: ({params}) =>fetch(`http://localhost:5000/art/${params.id}`)
+                loader: ({params}) =>fetch(`https://painting-and-drawing-server-psi.vercel.app/art/${params.id}`)
             },
             {
                 path: '/matchedcategory/:subcategory',
                 element: <MatchedCategory></MatchedCategory>,
-                loader: ({ params }) => fetch(`http://localhost:5000/artbysubcategory/${params.subcategory}`),
+                loader: ({ params }) => fetch(`https://painting-and-drawing-server-psi.vercel.app/artbysubcategory/${params.subcategory}`),
                
             },
             {

@@ -32,7 +32,7 @@ const SubCategoryList = () => {
 
   // Fetch the subcategories from the server
   useEffect(() => {
-    fetch('http://localhost:5000/subcategories') // Adjust endpoint as needed
+    fetch('https://painting-and-drawing-server-psi.vercel.app/subcategories') // Adjust endpoint as needed
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

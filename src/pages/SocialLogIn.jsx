@@ -22,7 +22,10 @@ const SocialLogIn = () => {
     const handleSocialLogin = (socialProvider) => {
         socialProvider()
           .then((result) => {
-            if (result.user) {
+            console.log(result.user)
+            if (result.user) 
+            
+             {
               const { email, displayName } = result.user; // Get email and displayName from the user object
     
               // Create a new user object
@@ -32,7 +35,7 @@ const SocialLogIn = () => {
               };
     
               // Send the new user data to the server to store in MongoDB
-              fetch("http://localhost:5000/user", {
+              fetch("https://painting-and-drawing-server-psi.vercel.app/user", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

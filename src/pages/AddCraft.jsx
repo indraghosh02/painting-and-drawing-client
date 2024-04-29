@@ -4,6 +4,8 @@ import UseAuth from '../Hook/UseAuth';
 
 const AddCraft = () => {
     const { user } = UseAuth();
+    
+    console.log(user);
 
     const loadedUsers = useLoaderData();
 
@@ -29,7 +31,7 @@ const AddCraft = () => {
 
 
         //send data to server
-        fetch('http://localhost:5000/art',{
+        fetch('https://painting-and-drawing-server-psi.vercel.app/art',{
 
         method: 'POST',
         headers: {
