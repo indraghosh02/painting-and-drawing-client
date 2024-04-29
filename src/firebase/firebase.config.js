@@ -12,6 +12,16 @@ const firebaseConfig = {
   storageBucket: "painting-and-drawing-5bbe7.appspot.com",
   messagingSenderId: "652714286945",
   appId: "1:652714286945:web:f3c3b0c7b2001a31a76f20"
+
+
+
+
+  // apiKey: import.meta.env.VITE_APIKEY,
+  // authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  // projectId: import.meta.env.VITE_PROJECTID,
+  // storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  // messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  // appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
