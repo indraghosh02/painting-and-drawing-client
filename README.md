@@ -11,7 +11,14 @@ Art Sketcher is a platform designed to streamline the exploration and management
 - User Engagement and Contribution: Users are required to log in to access detailed information about individual craft items. Once logged in, they can contribute new art and craft items, which are managed through the "My Art and Craft List" route, allowing them to view, update, and delete their contributions. Certain routes, such as viewing detailed craft item information, require users to log in.
 
 # Technologies used
-HTML, Tailwindcss, JavaScript, Firebase, React, Node.js, Express, MongoDB.
+- HTML
+- Tailwindcss
+- JavaScript
+- Firebase
+- React
+- Node.js
+- Express
+- MongoDB.
 
 # To  Locally Run
 - Clone the Repository: Provides the command to clone the repository using Git.
